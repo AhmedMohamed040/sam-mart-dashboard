@@ -1,0 +1,3853 @@
+---
+openapi: 3.0.0
+paths:
+  "/v1/users/allow-notification/{allow_notification}":
+    put:
+      operationId: allowNotification
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: allow_notification
+          required: true
+          in: path
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: ''
+      tags:
+        - User
+      security:
+        - bearer: []
+  "/v1/users/make-resturant":
+    put:
+      operationId: makeResturant
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - User
+      security:
+        - bearer: []
+  "/v1/users/update-profile":
+    patch:
+      operationId: updateProfile
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              "$ref": "#/components/schemas/UpdateProfileRequest"
+      responses:
+        '200':
+          description: ''
+      tags:
+        - User
+      security:
+        - bearer: []
+  "/v1/users/get-profile":
+    get:
+      operationId: profile
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - User
+      security:
+        - bearer: []
+  "/v1/auth/signin":
+    post:
+      operationId: signin
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/LoginRequest"
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Authentication
+  "/v1/auth/register":
+    post:
+      operationId: register
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              "$ref": "#/components/schemas/RegisterRequest"
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Authentication
+  "/v1/auth/register-driver":
+    post:
+      operationId: registerDriver
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              "$ref": "#/components/schemas/DriverRegisterRequest"
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Authentication
+  "/v1/auth/send-otp":
+    post:
+      operationId: snedOtp
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/SendOtpRequest"
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Authentication
+  "/v1/auth/verify-otp":
+    post:
+      operationId: verifyOtp
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/VerifyOtpRequest"
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Authentication
+  "/v1/auth/verify-phone":
+    post:
+      operationId: verifyPhone
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/VerifyOtpRequest"
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Authentication
+      security:
+        - bearer: []
+  "/v1/auth/delete-account":
+    post:
+      operationId: deleteAccount
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/VerifyOtpRequest"
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Authentication
+      security:
+        - bearer: []
+  "/v1/country/create-country":
+    post:
+      operationId: create
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/CreateCountryRequest"
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Country
+      security:
+        - bearer: []
+  "/v1/country/{country_id}/single-country":
+    get:
+      operationId: single
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: country_id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Country
+      security:
+        - bearer: []
+  "/v1/country/all-countries":
+    get:
+      operationId: allCountries
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Country
+      security:
+        - bearer: []
+  "/v1/country/{country_id}/update-country":
+    put:
+      operationId: update
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: country_id
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/UpdateCountryRequest"
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Country
+      security:
+        - bearer: []
+  "/v1/country/{country_id}/delete-country":
+    delete:
+      operationId: delete
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: country_id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Country
+      security:
+        - bearer: []
+  "/v1/region/create-region":
+    post:
+      operationId: create
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/CreateRegionRequest"
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Region
+      security:
+        - bearer: []
+  "/v1/region/{region_id}/single-region":
+    get:
+      operationId: single
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: region_id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Region
+      security:
+        - bearer: []
+  "/v1/region/{city_id}/all-regions":
+    get:
+      operationId: allRegions
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: city_id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Region
+      security:
+        - bearer: []
+  "/v1/region/{region_id}/update-region":
+    put:
+      operationId: update
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: region_id
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/UpdateRegionRequest"
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Region
+      security:
+        - bearer: []
+  "/v1/region/{region_id}/delete-region":
+    delete:
+      operationId: delete
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: region_id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Region
+      security:
+        - bearer: []
+  "/v1/city/{country_id}/create-city":
+    post:
+      operationId: create
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: country_id
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/CreateCityRequest"
+      responses:
+        '201':
+          description: ''
+      tags:
+        - City
+      security:
+        - bearer: []
+  "/v1/city/{country_id}/all-cities":
+    get:
+      operationId: allCities
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: country_id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - City
+      security:
+        - bearer: []
+  "/v1/city/{city_id}/single-city":
+    get:
+      operationId: single
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: city_id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - City
+      security:
+        - bearer: []
+  "/v1/city/{city_id}/update-city":
+    put:
+      operationId: update
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: city_id
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/UpdateCityRequest"
+      responses:
+        '200':
+          description: ''
+      tags:
+        - City
+      security:
+        - bearer: []
+  "/v1/city/{city_id}/delete-city":
+    delete:
+      operationId: delete
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: city_id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - City
+      security:
+        - bearer: []
+  "/v1/driver/all-drivers":
+    get:
+      operationId: allDrivers
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Driver
+      security:
+        - bearer: []
+  "/v1/driver/{driver_id}/single-driver":
+    get:
+      operationId: singleDriver
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: driver_id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Driver
+      security:
+        - bearer: []
+  "/v1/driver/{driver_id}/location":
+    put:
+      operationId: updateDriverLocation
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/UpdateDriverLocationRequest"
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Driver
+      security:
+        - bearer: []
+  "/v1/product/create-product":
+    post:
+      operationId: createProduct
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/CreateProductRequest"
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Product
+      security:
+        - bearer: []
+  "/v1/product/create-product-offer/{product_category_price_id}":
+    post:
+      operationId: createProductOffer
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: product_category_price_id
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/CreateProductOfferRequest"
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Product
+      security:
+        - bearer: []
+  "/v1/product/add-image-to-product/{product_id}":
+    post:
+      operationId: addImageToProduct
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: product_id
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              "$ref": "#/components/schemas/CreateSingleImageRequest"
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Product
+      security:
+        - bearer: []
+  "/v1/product/add-measurement-to-product/{product_id}":
+    post:
+      operationId: addMeasurementToProduct
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: product_id
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/CreateProductMeasurementRequest"
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Product
+      security:
+        - bearer: []
+  "/v1/product/update-product/{product_id}":
+    put:
+      operationId: updateProduct
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: product_id
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/UpdateProductRequest"
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Product
+      security:
+        - bearer: []
+  "/v1/product/update-product-measurement/{product_id}/{product_measurement_unit_id}":
+    put:
+      operationId: updateProductMeasurement
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: product_id
+          required: true
+          in: path
+          schema:
+            type: string
+        - name: product_measurement_unit_id
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/UpdateProductMeasurementRequest"
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Product
+      security:
+        - bearer: []
+  "/v1/product/update-product-image/{product_id}/{image_id}":
+    put:
+      operationId: updateProductImage
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: product_id
+          required: true
+          in: path
+          schema:
+            type: string
+        - name: image_id
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              "$ref": "#/components/schemas/UpdateSingleImageRequest"
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Product
+      security:
+        - bearer: []
+  "/v1/product/all-products-for-client":
+    get:
+      operationId: allProductsForClient
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: page
+          required: false
+          in: query
+          schema:
+            default: 1
+            type: number
+        - name: limit
+          required: false
+          in: query
+          schema:
+            default: 10
+            type: number
+        - name: longitude
+          required: false
+          in: query
+          schema:
+            nullable: true
+            type: string
+        - name: latitude
+          required: false
+          in: query
+          schema:
+            nullable: true
+            type: string
+        - name: section_id
+          required: false
+          in: query
+          schema:
+            nullable: true
+            type: string
+        - name: category_sub_category_id
+          required: false
+          in: query
+          schema:
+            nullable: true
+            type: string
+        - name: product_name
+          required: false
+          in: query
+          schema:
+            nullable: true
+            type: string
+        - name: sort
+          required: false
+          in: query
+          schema:
+            default: new
+            enum:
+              - lowest_price
+              - highest_price
+              - new
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Product
+      security:
+        - bearer: []
+  "/v1/product/all-products-offers-for-client":
+    get:
+      operationId: allProductsOffersForClient
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: page
+          required: false
+          in: query
+          schema:
+            default: 1
+            type: number
+        - name: limit
+          required: false
+          in: query
+          schema:
+            default: 10
+            type: number
+        - name: longitude
+          required: false
+          in: query
+          schema:
+            nullable: true
+            type: string
+        - name: latitude
+          required: false
+          in: query
+          schema:
+            nullable: true
+            type: string
+        - name: section_id
+          required: false
+          in: query
+          schema:
+            nullable: true
+            type: string
+        - name: category_sub_category_id
+          required: false
+          in: query
+          schema:
+            nullable: true
+            type: string
+        - name: product_name
+          required: false
+          in: query
+          schema:
+            nullable: true
+            type: string
+        - name: sort
+          required: false
+          in: query
+          schema:
+            default: new
+            enum:
+              - lowest_price
+              - highest_price
+              - new
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Product
+      security:
+        - bearer: []
+  "/v1/product/all-products-for-dashboard":
+    get:
+      operationId: allProductsForDashboard
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: page
+          required: false
+          in: query
+          schema:
+            default: 1
+            type: number
+        - name: limit
+          required: false
+          in: query
+          schema:
+            default: 10
+            type: number
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Product
+      security:
+        - bearer: []
+  "/v1/product/all-products-offers-for-dashboard":
+    get:
+      operationId: allProductsOffersForDashboard
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: page
+          required: false
+          in: query
+          schema:
+            default: 1
+            type: number
+        - name: limit
+          required: false
+          in: query
+          schema:
+            default: 10
+            type: number
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Product
+      security:
+        - bearer: []
+  "/v1/product/single-product-client/{product_id}":
+    get:
+      operationId: singleProductClient
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: product_id
+          required: true
+          in: path
+          schema:
+            type: string
+        - name: longitude
+          required: false
+          in: query
+          schema:
+            nullable: true
+            type: string
+        - name: latitude
+          required: false
+          in: query
+          schema:
+            nullable: true
+            type: string
+        - name: section_id
+          required: false
+          in: query
+          schema:
+            nullable: true
+            type: string
+        - name: category_sub_category_id
+          required: false
+          in: query
+          schema:
+            nullable: true
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Product
+      security:
+        - bearer: []
+  "/v1/product/single-product-dashboard/{product_id}":
+    get:
+      operationId: singleProductDashboard
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: product_id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Product
+      security:
+        - bearer: []
+  "/v1/product/delete-Product/{product_id}":
+    delete:
+      operationId: deleteProduct
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: product_id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Product
+      security:
+        - bearer: []
+  "/v1/product/delete-Product-image/{product_id}/{image_id}":
+    delete:
+      operationId: deleteProductImage
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: product_id
+          required: true
+          in: path
+          schema:
+            type: string
+        - name: image_id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Product
+      security:
+        - bearer: []
+  "/v1/product/delete-Product-measurement/{product_id}/{product_measurement_id}":
+    delete:
+      operationId: deleteProductMeasurement
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: product_id
+          required: true
+          in: path
+          schema:
+            type: string
+        - name: product_measurement_id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Product
+      security:
+        - bearer: []
+  "/v1/product/export":
+    get:
+      operationId: exportProducts
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Product
+      security:
+        - bearer: []
+        - bearer: []
+  "/v1/product/import":
+    post:
+      operationId: importProducts
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              "$ref": "#/components/schemas/ImportCategoryRequest"
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Product
+      security:
+        - bearer: []
+        - bearer: []
+  "/v1/measurement-unit/all-measurement-units":
+    get:
+      operationId: allMeasurementUnits
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Measurement-Unit
+      security:
+        - bearer: []
+  "/v1/measurement-unit/{measurement_unit_id}/measurement-unit":
+    get:
+      operationId: singleMeasurementUnit
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: measurement_unit_id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Measurement-Unit
+      security:
+        - bearer: []
+  "/v1/measurement-unit/create-measurement-unit":
+    post:
+      operationId: createMeasurementUnit
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/CreateMeasurementUnitRequest"
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Measurement-Unit
+      security:
+        - bearer: []
+  "/v1/measurement-unit/{measurement_unit_id}/update-measurement-unit":
+    put:
+      operationId: updateMeasurementUnit
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: measurement_unit_id
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/UpdateMeasurementUnitRequest"
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Measurement-Unit
+      security:
+        - bearer: []
+  "/v1/measurement-unit/{measurement_unit_id}/delete-measurement-unit":
+    delete:
+      operationId: deleteMeasurementUnit
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: measurement_unit_id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Measurement-Unit
+      security:
+        - bearer: []
+  "/v1/additional-service/all-additionalServices-units":
+    get:
+      operationId: allAdditionalServices
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Additional-Service
+      security:
+        - bearer: []
+  "/v1/additional-service/{additional_service_id}/additional-service-unit":
+    get:
+      operationId: singleAdditionalService
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: additional_service_id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Additional-Service
+      security:
+        - bearer: []
+  "/v1/additional-service/create-additional-service-unit":
+    post:
+      operationId: createAdditionalService
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/CreateAdditionalServiceRequest"
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Additional-Service
+      security:
+        - bearer: []
+  "/v1/additional-service/{additional_service_id}/update-additional-service-unit":
+    put:
+      operationId: updateAdditionalService
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: additional_service_id
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/UpdateAdditionalServiceRequest"
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Additional-Service
+      security:
+        - bearer: []
+  "/v1/additional-service/{additional_service_id}/delete-additional-service-unit":
+    delete:
+      operationId: deleteAdditionalService
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: additional_service_id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Additional-Service
+      security:
+        - bearer: []
+  "/v1/section":
+    post:
+      operationId: create
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              "$ref": "#/components/schemas/CreateSectionRequest"
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Section
+      security:
+        - bearer: []
+    put:
+      operationId: update
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              "$ref": "#/components/schemas/UpdateSectionRequest"
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Section
+      security:
+        - bearer: []
+    get:
+      operationId: getSections
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: user_id
+          required: false
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Section
+  "/v1/section/{id}":
+    delete:
+      operationId: deleteSection
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Section
+      security:
+        - bearer: []
+  "/v1/section/add-category":
+    post:
+      operationId: addCategoryToSection
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/SectionCategoryRequest"
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Section
+      security:
+        - bearer: []
+  "/v1/section/section-category":
+    put:
+      operationId: updateSectionCategory
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/UpdateSectionCategoryRequest"
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Section
+      security:
+        - bearer: []
+  "/v1/section/section-category/{id}":
+    delete:
+      operationId: deleteSectionCategory
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Section
+      security:
+        - bearer: []
+  "/v1/section/{section_id}/categories":
+    get:
+      operationId: getSectionCategories
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: section_id
+          required: true
+          in: path
+          schema:
+            type: string
+        - name: all
+          required: true
+          in: query
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Section
+  "/v1/section/export":
+    get:
+      operationId: exportSections
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Section
+      security:
+        - bearer: []
+  "/v1/section/import":
+    post:
+      operationId: importSections
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              "$ref": "#/components/schemas/ImportCategoryRequest"
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Section
+      security:
+        - bearer: []
+  "/v1/category":
+    post:
+      operationId: create
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              "$ref": "#/components/schemas/CreateCategoryRequest"
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Category
+      security:
+        - bearer: []
+    put:
+      operationId: update
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              "$ref": "#/components/schemas/UpdateCategoryRequest"
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Category
+      security:
+        - bearer: []
+    get:
+      operationId: getCategories
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: page
+          required: false
+          in: query
+          schema:
+            minimum: 1
+            type: number
+        - name: limit
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: filters
+          required: false
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+        - name: sortBy
+          required: false
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+        - name: includes
+          required: false
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Category
+      security:
+        - bearer: []
+  "/v1/category/export":
+    get:
+      operationId: export
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Category
+      security:
+        - bearer: []
+  "/v1/category/import":
+    post:
+      operationId: import
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              "$ref": "#/components/schemas/ImportCategoryRequest"
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Category
+      security:
+        - bearer: []
+  "/v1/category/{section_category_id}/subcategories":
+    get:
+      operationId: getCAtegorySubcategory
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: section_category_id
+          required: true
+          in: path
+          schema:
+            type: string
+        - name: all
+          required: true
+          in: query
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Category
+  "/v1/category/add-subcategory":
+    post:
+      operationId: addSubcategoryToCategory
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/CategorySubcategoryRequest"
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Category
+      security:
+        - bearer: []
+  "/v1/category/category-subcategory":
+    put:
+      operationId: updateSectionCategory
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/UpdateSectionCategoryRequest"
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Category
+      security:
+        - bearer: []
+  "/v1/category/category-subcategory{id}":
+    delete:
+      operationId: deleteSectionCategory
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Category
+      security:
+        - bearer: []
+  "/v1/subcategory":
+    post:
+      operationId: create
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              "$ref": "#/components/schemas/CreateCategoryRequest"
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Subcategory
+      security:
+        - bearer: []
+    get:
+      operationId: getCategories
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: page
+          required: false
+          in: query
+          schema:
+            minimum: 1
+            type: number
+        - name: limit
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: filters
+          required: false
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+        - name: sortBy
+          required: false
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+        - name: includes
+          required: false
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Subcategory
+    put:
+      operationId: update
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              "$ref": "#/components/schemas/UpdateCategoryRequest"
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Subcategory
+  "/v1/subcategory/most-hit-subcategory":
+    get:
+      operationId: getMostHitSubcategory
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: page
+          required: false
+          in: query
+          schema:
+            minimum: 1
+            type: number
+        - name: limit
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: section_category_id
+          required: false
+          in: query
+          schema:
+            type: string
+        - name: section_id
+          required: false
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Subcategory
+  "/v1/subcategory/{sub_category_id}":
+    delete:
+      operationId: delete
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: sub_category_id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Subcategory
+      security:
+        - bearer: []
+  "/v1/subcategory/export":
+    get:
+      operationId: exportSubCategory
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Subcategory
+      security:
+        - bearer: []
+  "/v1/subcategory/import":
+    post:
+      operationId: importSubCategory
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              "$ref": "#/components/schemas/ImportCategoryRequest"
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Subcategory
+      security:
+        - bearer: []
+  "/v1/product-category-price/create-link-product-subcategory/{product_id}/{categorySubCategory_id}":
+    post:
+      operationId: linkProductSubcategory
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/CreateLinkProductSubcategoryRequest"
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Product-Category-Price
+      security:
+        - bearer: []
+  "/v1/product-category-price/get-link-product-subcategory/{product_id}/{categorySubCategory_id}":
+    get:
+      operationId: getLinkProductSubcategory
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: product_id
+          required: true
+          in: path
+          schema:
+            type: string
+        - name: categorySubCategory_id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Product-Category-Price
+      security:
+        - bearer: []
+  "/v1/product-category-price/delete-link-product-subcategory/{product_sub_category_id}":
+    delete:
+      operationId: deleteLinkProductSubcategory
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: product_sub_category_id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Product-Category-Price
+      security:
+        - bearer: []
+  "/v1/product-category-price/unit-prices-product/{product_sub_category_id}":
+    get:
+      operationId: AllUnitPricesProduct
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: product_sub_category_id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Product-Category-Price
+      security:
+        - bearer: []
+    post:
+      operationId: UnitPricesProduct
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: product_sub_category_id
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/ProductMeasurementRequest"
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Product-Category-Price
+      security:
+        - bearer: []
+  "/v1/product-category-price/product-additional-service/{product_sub_category_id}/{product_measurement_id}":
+    post:
+      operationId: productAdditionalService
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: product_sub_category_id
+          required: true
+          in: path
+          schema:
+            type: string
+        - name: product_measurement_id
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/ProductAdditionalServiceRequest"
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Product-Category-Price
+      security:
+        - bearer: []
+  "/v1/banar":
+    post:
+      operationId: createBanar
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              "$ref": "#/components/schemas/CreateBanarRequest"
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Banar
+      security:
+        - bearer: []
+    get:
+      operationId: getBanars
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Banar
+      security:
+        - bearer: []
+  "/v1/banar/{id}":
+    patch:
+      operationId: updateBanar
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              "$ref": "#/components/schemas/UpdateBannerRequest"
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Banar
+      security:
+        - bearer: []
+    delete:
+      operationId: deleteBanar
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Banar
+      security:
+        - bearer: []
+  "/v1/warehouse":
+    get:
+      operationId: get
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: page
+          required: false
+          in: query
+          schema:
+            minimum: 1
+            type: number
+        - name: limit
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: filters
+          required: false
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+        - name: sortBy
+          required: false
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+        - name: includes
+          required: false
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Warehouse
+      security:
+        - bearer: []
+    post:
+      operationId: create
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/CreateWarehouseRequest"
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Warehouse
+      security:
+        - bearer: []
+  "/v1/warehouse/operation":
+    post:
+      operationId: createWarehouseOperation
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/WarehouseOperationRequest"
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Warehouse
+      security:
+        - bearer: []
+  "/v1/support-ticket":
+    post:
+      operationId: createTicket
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              "$ref": "#/components/schemas/CreateTicketRequest"
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Support Ticket
+      security:
+        - bearer: []
+    get:
+      operationId: getTickets
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: page
+          required: false
+          in: query
+          schema:
+            minimum: 1
+            type: number
+        - name: limit
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: filters
+          required: false
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+        - name: sortBy
+          required: false
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+        - name: includes
+          required: false
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Support Ticket
+      security:
+        - bearer: []
+  "/v1/support-ticket/comment/{ticketId}":
+    post:
+      operationId: addComment
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: ticketId
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              "$ref": "#/components/schemas/AddTicketCommentRequest"
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Support Ticket
+      security:
+        - bearer: []
+  "/v1/support-ticket/comments/{ticketId}/{offset}/{limit}":
+    get:
+      operationId: getComments
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: ticketId
+          required: true
+          in: path
+          schema:
+            type: string
+        - name: offset
+          required: true
+          in: path
+          schema:
+            type: number
+        - name: limit
+          required: true
+          in: path
+          schema:
+            type: number
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Support Ticket
+      security:
+        - bearer: []
+  "/v1/support-ticket/ticket-status/{ticketId}":
+    put:
+      operationId: changeTicketStatus
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: ticketId
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/ChangeTicketStatusRequest"
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Support Ticket
+      security:
+        - bearer: []
+  "/v1/static-page":
+    patch:
+      operationId: updateStaticPage
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/UpdateStaticPageRequest"
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Satic Page
+      security:
+        - bearer: []
+  "/v1/static-page/{static_page_type}":
+    get:
+      operationId: getStaticPage
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: static_page_type
+          required: true
+          in: path
+          description: Static page type
+          schema:
+            enum:
+              - ABOUT_US
+              - TERMS_AND_CONDITIONS
+              - PRIVACY_POLICY
+              - RETURN_POLICY
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Satic Page
+      security:
+        - bearer: []
+  "/v1/cart":
+    get:
+      operationId: getCartProducts
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Cart
+      security:
+        - bearer: []
+  "/v1/cart/add":
+    post:
+      operationId: createCart
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/AddToCartRequest"
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Cart
+      security:
+        - bearer: []
+  "/v1/slot/create-slot":
+    post:
+      operationId: create
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/CreateSlotRequest"
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Slot
+      security:
+        - bearer: []
+  "/v1/slot/{slot_id}/single-slot":
+    get:
+      operationId: single
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: slot_id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Slot
+      security:
+        - bearer: []
+  "/v1/slot/all-slots":
+    get:
+      operationId: allCountries
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Slot
+      security:
+        - bearer: []
+  "/v1/slot/{slot_id}/update-slot":
+    put:
+      operationId: update
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: slot_id
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/UpdateSlotRequest"
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Slot
+      security:
+        - bearer: []
+  "/v1/slot/{slot_id}/delete-slot":
+    delete:
+      operationId: delete
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: slot_id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Slot
+      security:
+        - bearer: []
+  "/v1/order":
+    post:
+      operationId: makeOrder
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/MakeOrderRequest"
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Order
+      security:
+        - bearer: []
+  "/v1/storage/{dir}/{filename}":
+    get:
+      operationId: get
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: dir
+          required: true
+          in: path
+          schema:
+            type: string
+        - name: filename
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Storage
+  "/v1/storage":
+    post:
+      operationId: upload
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              "$ref": "#/components/schemas/UploadFileRequest"
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Storage
+      security:
+        - bearer: []
+  "/v1/addresses":
+    get:
+      operationId: getAll
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: page
+          required: false
+          in: query
+          schema:
+            minimum: 1
+            type: number
+        - name: limit
+          required: false
+          in: query
+          schema:
+            type: number
+        - name: filters
+          required: false
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+        - name: sortBy
+          required: false
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+        - name: includes
+          required: false
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Addresses
+      security:
+        - bearer: []
+    post:
+      operationId: create
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/CreateAddressRequest"
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Addresses
+      security:
+        - bearer: []
+    put:
+      operationId: update
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/UpdateAddressRequest"
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Addresses
+      security:
+        - bearer: []
+  "/v1/addresses/{id}":
+    get:
+      operationId: getById
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Addresses
+      security:
+        - bearer: []
+    delete:
+      operationId: delete
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Addresses
+      security:
+        - bearer: []
+  "/v1/addresses/{id}/set-favorite":
+    put:
+      operationId: setFavorite
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Addresses
+      security:
+        - bearer: []
+  "/v1/addresses/{id}/remove-favorite":
+    put:
+      operationId: removeFavorite
+      parameters:
+        - name: Accept-Language
+          in: header
+          description: 'Language header: en, ar'
+          required: false
+          schema:
+            type: string
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Addresses
+      security:
+        - bearer: []
+info:
+  title: sam_mart API
+  description: sam_mart API description
+  version: v1
+  contact: {}
+tags: []
+servers:
+  - url: http://localhost:3000
+components:
+  securitySchemes:
+    bearer:
+      scheme: bearer
+      bearerFormat: JWT
+      type: http
+  schemas:
+    UpdateProfileRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+        avatarFile:
+          type: file
+        gender:
+          type: string
+          enum:
+            - male
+            - female
+        birth_date:
+          format: date-time
+          type: string
+          default: '2024-01-18'
+        delete_avatar:
+          type: boolean
+    LoginRequest:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+      required:
+        - username
+        - password
+    RegisterRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+        avatarFile:
+          type: file
+      required:
+        - name
+        - phone
+    DriverRegisterRequest:
+      type: object
+      properties:
+        username:
+          type: string
+        email:
+          type: string
+          nullable: true
+        phone:
+          type: string
+        avatarFile:
+          type: file
+          nullable: true
+        birth_date:
+          type: string
+          nullable: true
+        country_id:
+          type: string
+        city_id:
+          type: string
+        region_id:
+          type: string
+        id_card_number:
+          type: string
+        id_card_image:
+          type: file
+        license_number:
+          type: string
+        license_image:
+          type: file
+        vehicle_color:
+          type: string
+        vehicle_model:
+          type: string
+        vehicle_type:
+          type: string
+          enum:
+            - SADAN
+            - TRUCK
+            - VAN
+      required:
+        - username
+        - phone
+        - country_id
+        - city_id
+        - region_id
+        - id_card_number
+        - id_card_image
+        - license_number
+        - license_image
+        - vehicle_color
+        - vehicle_model
+        - vehicle_type
+    SendOtpRequest:
+      type: object
+      properties:
+        type:
+          type: string
+          description: Authentication usernme type
+          enum:
+            - email
+            - phone
+          example: phone
+          default: phone
+        username:
+          type: string
+          description: Authentication usernme
+          example: "+966555554444"
+          default: "+966555554444"
+      required:
+        - type
+        - username
+    VerifyOtpRequest:
+      type: object
+      properties:
+        type:
+          type: string
+          description: Authentication usernme type
+          enum:
+            - email
+            - phone
+          example: phone
+          default: phone
+        username:
+          type: string
+          description: Authentication usernme
+          example: "+966555554444"
+          default: "+966555554444"
+        code:
+          type: string
+          description: Authentication code
+          example: '1234'
+          default: '1234'
+      required:
+        - type
+        - username
+        - code
+    CreateCountryRequest:
+      type: object
+      properties:
+        name_ar:
+          type: string
+        name_en:
+          type: string
+      required:
+        - name_ar
+        - name_en
+    UpdateCountryRequest:
+      type: object
+      properties:
+        name_ar:
+          type: string
+          nullable: true
+        name_en:
+          type: string
+          nullable: true
+    CreateRegionRequest:
+      type: object
+      properties:
+        name_ar:
+          type: string
+        name_en:
+          type: string
+      required:
+        - name_ar
+        - name_en
+    UpdateRegionRequest:
+      type: object
+      properties:
+        name_ar:
+          type: string
+          nullable: true
+        name_en:
+          type: string
+          nullable: true
+    CreateCityRequest:
+      type: object
+      properties:
+        name_ar:
+          type: string
+        name_en:
+          type: string
+      required:
+        - name_ar
+        - name_en
+    UpdateCityRequest:
+      type: object
+      properties:
+        name_ar:
+          type: string
+          nullable: true
+        name_en:
+          type: string
+          nullable: true
+    UpdateDriverLocationRequest:
+      type: object
+      properties:
+        latitude:
+          type: double precision
+        longitude:
+          type: double precision
+      required:
+        - latitude
+        - longitude
+    CreateProductImageRequest:
+      type: object
+      properties:
+        url:
+          type: string
+        is_logo:
+          type: boolean
+          default: false
+      required:
+        - url
+        - is_logo
+    CreateProductMeasurementRequest:
+      type: object
+      properties:
+        conversion_factor:
+          type: number
+        measurement_unit_id:
+          type: string
+        is_main_unit:
+          type: boolean
+          default: false
+      required:
+        - conversion_factor
+        - measurement_unit_id
+        - is_main_unit
+    CreateProductRequest:
+      type: object
+      properties:
+        name_ar:
+          type: string
+        name_en:
+          type: string
+        description_ar:
+          type: string
+        description_en:
+          type: string
+        is_active:
+          type: boolean
+          default: true
+        is_recovered:
+          type: boolean
+          default: true
+        product_images:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CreateProductImageRequest"
+        measurements:
+          type: array
+          items:
+            "$ref": "#/components/schemas/CreateProductMeasurementRequest"
+      required:
+        - name_ar
+        - name_en
+        - description_ar
+        - description_en
+        - is_active
+        - is_recovered
+        - product_images
+        - measurements
+    CreateProductOfferRequest:
+      type: object
+      properties:
+        start_date:
+          format: date-time
+          type: string
+          default: '2024-01-18'
+        end_date:
+          format: date-time
+          type: string
+          default: '2024-02-17'
+        offer_quantity:
+          type: number
+        min_offer_quantity:
+          type: number
+        max_offer_quantity:
+          type: number
+        discount_type:
+          type: string
+          enum:
+            - PERCENTAGE
+            - VALUE
+          description: Type of the Discount
+          default: PERCENTAGE
+        discount_value:
+          type: number
+        is_active:
+          type: boolean
+          default: true
+      required:
+        - start_date
+        - end_date
+        - offer_quantity
+        - min_offer_quantity
+        - max_offer_quantity
+        - discount_type
+        - discount_value
+        - is_active
+    CreateSingleImageRequest:
+      type: object
+      properties:
+        file:
+          type: file
+        is_logo:
+          type: boolean
+          default: false
+      required:
+        - file
+        - is_logo
+    UpdateProductRequest:
+      type: object
+      properties:
+        name_ar:
+          type: string
+          nullable: true
+        name_en:
+          type: string
+          nullable: true
+        description_ar:
+          type: string
+          nullable: true
+        description_en:
+          type: string
+          nullable: true
+        is_active:
+          type: boolean
+          nullable: true
+        is_recovered:
+          type: boolean
+          nullable: true
+    UpdateProductMeasurementRequest:
+      type: object
+      properties:
+        conversion_factor:
+          type: number
+          nullable: true
+        measurement_unit_id:
+          type: string
+          nullable: true
+        is_main_unit:
+          type: boolean
+          nullable: true
+    UpdateSingleImageRequest:
+      type: object
+      properties:
+        file:
+          type: file
+          nullable: true
+        is_logo:
+          type: boolean
+          nullable: true
+    ImportCategoryRequest:
+      type: object
+      properties:
+        file:
+          type: file
+      required:
+        - file
+    CreateMeasurementUnitRequest:
+      type: object
+      properties:
+        name_ar:
+          type: string
+        name_en:
+          type: string
+      required:
+        - name_ar
+        - name_en
+    UpdateMeasurementUnitRequest:
+      type: object
+      properties:
+        name_ar:
+          type: string
+          nullable: true
+        name_en:
+          type: string
+          nullable: true
+    CreateAdditionalServiceRequest:
+      type: object
+      properties:
+        name_ar:
+          type: string
+        name_en:
+          type: string
+      required:
+        - name_ar
+        - name_en
+    UpdateAdditionalServiceRequest:
+      type: object
+      properties:
+        name_ar:
+          type: string
+          nullable: true
+        name_en:
+          type: string
+          nullable: true
+    CreateSectionRequest:
+      type: object
+      properties:
+        name_ar:
+          type: string
+        name_en:
+          type: string
+        logo:
+          type: file
+        order_by:
+          type: number
+        min_order_price:
+          type: number
+        delivery_price:
+          type: number
+        delivery_type:
+          type: string
+          default: SCHEDULED&FAST
+          enum:
+            - FAST
+            - SCHEDULED
+            - SCHEDULED&FAST
+        allowed_roles:
+          type: string
+          enum:
+            - CLIENT
+            - RESTURANT
+      required:
+        - name_ar
+        - name_en
+        - logo
+        - order_by
+        - min_order_price
+        - delivery_price
+        - delivery_type
+    UpdateSectionRequest:
+      type: object
+      properties:
+        name_ar:
+          type: string
+        name_en:
+          type: string
+        logo:
+          type: file
+        order_by:
+          type: number
+        min_order_price:
+          type: number
+        delivery_price:
+          type: number
+        delivery_type:
+          type: string
+          default: SCHEDULED&FAST
+          enum:
+            - FAST
+            - SCHEDULED
+            - SCHEDULED&FAST
+        allowed_roles:
+          type: string
+          enum:
+            - CLIENT
+            - RESTURANT
+        id:
+          type: string
+      required:
+        - id
+    SectionCategoryRequest:
+      type: object
+      properties:
+        section_id:
+          type: string
+        category_id:
+          type: string
+        is_active:
+          type: boolean
+        order_by:
+          type: number
+      required:
+        - section_id
+        - category_id
+        - is_active
+        - order_by
+    UpdateSectionCategoryRequest:
+      type: object
+      properties:
+        id:
+          type: string
+        is_active:
+          type: boolean
+        order_by:
+          type: number
+      required:
+        - id
+        - is_active
+        - order_by
+    CreateCategoryRequest:
+      type: object
+      properties:
+        name_ar:
+          type: string
+        name_en:
+          type: string
+        logo:
+          type: file
+      required:
+        - name_ar
+        - name_en
+        - logo
+    UpdateCategoryRequest:
+      type: object
+      properties:
+        name_ar:
+          type: string
+        name_en:
+          type: string
+        logo:
+          type: file
+        id:
+          type: string
+      required:
+        - id
+    CategorySubcategoryRequest:
+      type: object
+      properties:
+        section_category_id:
+          type: string
+        subcategory_id:
+          type: string
+        is_active:
+          type: boolean
+        order_by:
+          type: number
+      required:
+        - section_category_id
+        - subcategory_id
+        - is_active
+        - order_by
+    CreateLinkProductSubcategoryRequest:
+      type: object
+      properties:
+        categorySubCategory_id:
+          type: string
+        product_id:
+          type: string
+        order_by:
+          type: number
+        is_active:
+          type: boolean
+          default: true
+      required:
+        - categorySubCategory_id
+        - product_id
+        - order_by
+        - is_active
+    ProductMeasurementRequest:
+      type: object
+      properties:
+        product_measurement_id:
+          type: string
+        price:
+          type: number
+        min_order_quantity:
+          type: number
+        max_order_quantity:
+          type: number
+      required:
+        - product_measurement_id
+        - price
+        - min_order_quantity
+        - max_order_quantity
+    ProductAdditionalServiceRequest:
+      type: object
+      properties:
+        additional_service_id:
+          type: string
+        price:
+          type: number
+      required:
+        - additional_service_id
+        - price
+    CreateBanarRequest:
+      type: object
+      properties:
+        banar:
+          type: file
+        started_at:
+          format: date-time
+          type: string
+          default: '2024-01-18'
+        ended_at:
+          format: date-time
+          type: string
+          default: '2024-01-18'
+        is_active:
+          type: boolean
+          nullable: true
+          default: true
+      required:
+        - banar
+        - started_at
+        - ended_at
+    UpdateBannerRequest:
+      type: object
+      properties:
+        banar:
+          type: file
+        started_at:
+          format: date-time
+          type: string
+          default: '2024-01-18'
+        ended_at:
+          format: date-time
+          type: string
+          default: '2024-01-18'
+        is_active:
+          type: boolean
+          nullable: true
+          default: true
+    CreateWarehouseRequest:
+      type: object
+      properties:
+        name_ar:
+          type: string
+        name_en:
+          type: string
+        region_id:
+          type: string
+        latitude:
+          type: string
+        longitude:
+          type: string
+        is_active:
+          type: boolean
+      required:
+        - name_ar
+        - name_en
+        - region_id
+        - latitude
+        - longitude
+    WarehouseOperationRequest:
+      type: object
+      properties:
+        warehouse_id:
+          type: string
+        product_id:
+          type: string
+        quantity:
+          type: number
+        type:
+          type: string
+          enum:
+            - IMPORT
+            - EXPORT
+        product_measurement_id:
+          type: string
+      required:
+        - warehouse_id
+        - product_id
+        - quantity
+        - type
+        - product_measurement_id
+    CreateTicketRequest:
+      type: object
+      properties:
+        subject:
+          type: string
+        description:
+          type: string
+        file:
+          type: file
+      required:
+        - subject
+        - description
+    AddTicketCommentRequest:
+      type: object
+      properties:
+        comment_text:
+          type: string
+        file:
+          type: file
+      required:
+        - comment_text
+    ChangeTicketStatusRequest:
+      type: object
+      properties:
+        status:
+          type: string
+          nullable: true
+          enum:
+            - OPEN
+            - IN_PROGRESS
+            - RESOLVED
+            - CLOSED
+            - CANCELLED
+    UpdateStaticPageRequest:
+      type: object
+      properties:
+        static_page_type:
+          type: string
+          description: Static page type
+          enum:
+            - ABOUT_US
+            - TERMS_AND_CONDITIONS
+            - PRIVACY_POLICY
+            - RETURN_POLICY
+        content_ar:
+          type: string
+          description: Static page arabic content
+        content_en:
+          type: string
+          description: Static page english content
+      required:
+        - static_page_type
+    AddToCartRequest:
+      type: object
+      properties:
+        product_category_price_id:
+          type: string
+        quantity:
+          type: number
+        additions:
+          type: array
+          items:
+            type: string
+      required:
+        - product_category_price_id
+        - quantity
+    CreateSlotRequest:
+      type: object
+      properties:
+        start_time:
+          type: string
+          default: 12:00 AM
+        end_time:
+          type: string
+          default: 01:00 AM
+        time_zone:
+          type: string
+          enum:
+            - MORNING
+            - AFTERNOON
+            - EVENING
+            - NIGHT
+          default: EVENING
+        order_by:
+          type: number
+      required:
+        - start_time
+        - end_time
+        - time_zone
+        - order_by
+    UpdateSlotRequest:
+      type: object
+      properties:
+        start_time:
+          type: string
+          nullable: true
+        end_time:
+          type: string
+          nullable: true
+        order_by:
+          type: number
+          nullable: true
+        time_zone:
+          type: string
+          nullable: true
+          enum:
+            - MORNING
+            - AFTERNOON
+            - EVENING
+            - NIGHT
+    MakeOrderRequest:
+      type: object
+      properties:
+        section_id:
+          type: string
+        address_id:
+          type: string
+        payment_method:
+          type: string
+          enum:
+            - CASH
+            - ONLINE
+        delivery_type:
+          type: string
+          enum:
+            - FAST
+            - SCHEDULED
+      required:
+        - section_id
+        - address_id
+        - payment_method
+        - delivery_type
+    UploadFileRequest:
+      type: object
+      properties:
+        file:
+          type: file
+      required:
+        - file
+    CreateAddressRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        address:
+          type: string
+        latitude:
+          type: string
+        longitude:
+          type: string
+        is_favorite:
+          type: boolean
+      required:
+        - name
+        - address
+        - latitude
+        - longitude
+    UpdateAddressRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        address:
+          type: string
+        latitude:
+          type: string
+        longitude:
+          type: string
+        is_favorite:
+          type: boolean
+        id:
+          type: string
+      required:
+        - id
